@@ -10,6 +10,8 @@ The supposed backend for the Wálk IN frontend, but the true raison d'être of t
 
 [Difference between Long and long](https://stackoverflow.com/questions/21034955/when-to-use-long-vs-long-in-java)
 
+[Why, for a class relying on the default constructor, @NoArgsConstructor is needed when @Data/@Value is used](http://www.javabyexamples.com/lombok-data-and-value-for-fast-pojos/)
+
 [DI in Spring](https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-spring-beans-and-dependency-injection.html)
 
 [Types of DI in Spring](https://blog.marcnuri.com/field-injection-is-not-recommended/)
