@@ -8,25 +8,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.hibernate.annotations.NaturalId;
 
+@Data
 @Entity
 @Table(name = "roles")
 public class Role {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Getter
-  @Setter
   private Long id;
 
   @NaturalId
   @Enumerated(EnumType.STRING)
   @Column(length = 128)
-  @Getter
-  @Setter
   private RoleName name;
 
   public enum RoleName {

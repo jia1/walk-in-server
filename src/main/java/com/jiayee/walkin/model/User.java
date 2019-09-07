@@ -15,10 +15,10 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.hibernate.annotations.NaturalId;
 
+@Data
 @Entity
 @Table(name = "users", uniqueConstraints = {
     @UniqueConstraint(columnNames = {
@@ -32,34 +32,24 @@ public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Getter
-  @Setter
   private Long id;
 
   @NotBlank
   @Size(max = 128)
-  @Getter
-  @Setter
   private String name;
 
   @NotBlank
   @Size(max = 32)
-  @Getter
-  @Setter
   private String username;
 
   @NaturalId
   @NotBlank
   @Size(max = 256)
   @Email
-  @Getter
-  @Setter
   private String email;
 
   @NotBlank
   @Size(max = 128)
-  @Getter
-  @Setter
   private String password;
 
   @ManyToMany(fetch = FetchType.LAZY)
@@ -68,8 +58,6 @@ public class User {
       joinColumns = @JoinColumn(name = "user_id"),
       inverseJoinColumns = @JoinColumn(name = "role_id")
   )
-  @Getter
-  @Setter
   private Set<Role> roles = new HashSet<>();
 
   public User(

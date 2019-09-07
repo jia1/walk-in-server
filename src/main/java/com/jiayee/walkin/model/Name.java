@@ -3,21 +3,19 @@ package com.jiayee.walkin.model;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import lombok.Getter;
 import lombok.NonNull;
+import lombok.Value;
 
+@Value
 class Name {
 
   private static final String NAME_PART_SEP = " ";
 
   @NonNull
-  @Getter
   private final String firstName;
 
-  @Getter
   private final String middleName;
 
-  @Getter
   private final String lastName;
 
   Name(
@@ -41,7 +39,7 @@ class Name {
 
   static Name deserialize(String name) {
     String[] parts = name.split(NAME_PART_SEP);
-    switch(parts.length) {
+    switch (parts.length) {
       case 1:
         return new Name(
             parts[0],
