@@ -3,6 +3,7 @@ package com.jiayee.walkin.security.service;
 import com.jiayee.walkin.model.User;
 import com.jiayee.walkin.repository.UserRepository;
 import com.jiayee.walkin.security.CustomUserDetails;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,8 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-  @Autowired
-  UserRepository userRepository;
+  @Setter(onMethod = @__({@Autowired}))
+  private UserRepository userRepository;
 
   // Called by Spring Security
   @Override

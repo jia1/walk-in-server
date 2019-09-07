@@ -8,21 +8,23 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
 import java.util.Date;
+import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 @Component
+@ConfigurationProperties(prefix = "security.jwt-token-provider")
 public class JwtTokenProvider {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(JwtTokenProvider.class);
 
-  @Value("${app.jwtSecret}")
+  @Setter
   private String jwtSecret;
 
-  @Value("${app.jwtExpirationInMs}")
+  @Setter
   private int jwtExpirationInMs;
 
   public String generateToken(Authentication authentication) {
@@ -37,7 +39,7 @@ public class JwtTokenProvider {
         .compact();
   }
 
-  public Long getUserIdFromJwt(String token) {
+  Long getUserIdFromJwt(String token) {
     Claims claims = Jwts.parser()
         .setSigningKey(jwtSecret)
         .parseClaimsJws(token)
@@ -45,7 +47,7 @@ public class JwtTokenProvider {
     return Long.parseLong(claims.getSubject());
   }
 
-  public boolean validateToken(String authToken) {
+  boolean validateToken(String authToken) {
     try {
       Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);
       return true;

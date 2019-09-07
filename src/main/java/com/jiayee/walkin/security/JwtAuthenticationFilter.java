@@ -6,6 +6,7 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +19,17 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-  @Autowired
+  private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
+
+  private static final String AUTH_HEADER_NAME = "Authorization";
+
+  private static final String AUTH_HEADER_VALUE_PREFIX = "Bearer ";
+
+  @Setter(onMethod = @__({@Autowired}))
   private JwtTokenProvider tokenProvider;
 
-  @Autowired
+  @Setter(onMethod = @__({@Autowired}))
   private CustomUserDetailsService customUserDetailsService;
-
-  private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
 
   @Override
   protected void doFilterInternal(
@@ -53,9 +58,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
   }
 
   private String getJwtFromRequest(HttpServletRequest request) {
-    String bearerToken = request.getHeader("Authorization");
-    if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
-      return bearerToken.substring(7);
+    String bearerToken = request.getHeader(AUTH_HEADER_NAME);
+    if (StringUtils.hasText(bearerToken) && bearerToken.startsWith(AUTH_HEADER_VALUE_PREFIX)) {
+      return bearerToken.substring(AUTH_HEADER_VALUE_PREFIX.length());
     }
     return null;
   }
