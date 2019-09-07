@@ -22,7 +22,7 @@ public class Role {
 
   @NaturalId
   @Enumerated(EnumType.STRING)
-  @Column(length = 128)
+  @Column(length = 64)
   private RoleName name;
 
   public enum RoleName {
