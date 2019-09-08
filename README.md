@@ -2,6 +2,14 @@
 
 The supposed backend for the Wálk IN frontend, but the true raison d'être of this is for learning Spring boot TTM.
 
+### Setup instructions (MacOS)
+
+1. Ensure Java SDK, Gradle, and MySQL are installed (e.g. via `brew`).
+1. You may also want to install an IDE like Intellij for ease of local development and deployment.
+1. And also Postman for quick testing of APIs.
+1. Run MySQL service in the Terminal (e.g. `mysql.server start`).
+1. Run the application.
+
 ### Useful links encountered
 
 [Main guide for this project](https://www.callicoder.com/spring-boot-spring-security-jwt-mysql-react-app-part-1/)
