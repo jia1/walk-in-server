@@ -13,10 +13,10 @@ public interface InterviewRepository extends JpaRepository<Interview, Long> {
 
   Optional<Interview> findById(Long interviewId);
 
+  List<Interview> findByIdIn(List<Long> interviewIds);
+
   long countByCreatedBy(Long userId);
 
   Page<Interview> findByCreatedBy(Long userId, Pageable pageable);
-
-  List<Interview> findByIdIn(List<Long> interviewIds);
 
 }

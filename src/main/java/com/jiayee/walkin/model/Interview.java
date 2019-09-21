@@ -36,6 +36,10 @@ public class Interview extends UserDateAudit {
   private String title;
 
   @NonNull
+  @NotBlank
+  private Location location;
+
+  @NonNull
   private Instant expiration;
 
   @OneToMany(
