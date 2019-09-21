@@ -10,7 +10,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -36,8 +39,12 @@ public class Interview extends UserDateAudit {
   @Size(max = 140)
   private String title;
 
-  @NonNull
-  @NotBlank
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinTable(
+      name = "interview_locations",
+      joinColumns = @JoinColumn(name = "interview_id", referencedColumnName = "id"),
+      inverseJoinColumns = @JoinColumn(name = "location_id", referencedColumnName = "id")
+  )
   private Location location;
 
   @NonNull

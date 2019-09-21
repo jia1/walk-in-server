@@ -26,11 +26,11 @@ public class Interviewee {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @OneToOne(mappedBy = "user")
+  @OneToOne(mappedBy = "interviewee")
   @Fetch(FetchMode.SELECT)
   private User user;
 
-  @ManyToMany(mappedBy = "slot")
+  @ManyToMany(mappedBy = "interviewees")
   @Fetch(FetchMode.SELECT)
   @BatchSize(size = 30)
   private List<Slot> slots;
