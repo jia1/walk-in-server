@@ -2,10 +2,8 @@ package com.jiayee.walkin.payload;
 
 import lombok.Data;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 @Data
-@RequiredArgsConstructor
 public class JwtAuthenticationResponse {
 
   @NonNull

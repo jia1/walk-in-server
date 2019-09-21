@@ -5,12 +5,13 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Data
 @NoArgsConstructor
 public class RegisterRequest {
 
-  @NotBlank
+  @NonNull
   @Size(min = 2, max = 42)
   private String firstName;
 

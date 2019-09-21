@@ -1,10 +1,10 @@
 package com.jiayee.walkin.model;
 
-import lombok.Data;
 import lombok.NonNull;
+import lombok.Value;
 
-@Data
-class Location {
+@Value
+public class Location {
 
   @NonNull
   private final String name;

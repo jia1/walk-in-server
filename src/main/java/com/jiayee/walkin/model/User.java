@@ -18,6 +18,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import org.hibernate.annotations.NaturalId;
 
 @Data
@@ -37,22 +38,26 @@ public class User {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  @NonNull
   @NotBlank
-  @Size(max = 128)
+  @Size(min = 2, max = 128)
   private String name;
 
+  @NonNull
   @NotBlank
-  @Size(max = 32)
+  @Size(min = 2, max = 32)
   private String username;
 
   @NaturalId
+  @NonNull
   @NotBlank
   @Size(max = 256)
   @Email
   private String email;
 
+  @NonNull
   @NotBlank
-  @Size(max = 128)
+  @Size(min = 8, max = 128)
   private String password;
 
   @OneToOne(cascade = CascadeType.ALL)

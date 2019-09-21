@@ -14,9 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NonNull;
 
 @Data
@@ -66,17 +64,6 @@ public class Slot extends UserDateAudit implements Comparable<Slot> {
   public boolean equals(Object o) {
     return getClass() == o.getClass()
         && getId().equals(((Slot) o).getId());
-  }
-
-  @AllArgsConstructor
-  enum Recurrence {
-
-    NONE(-1),
-    WEEKLY(604800);
-
-    @Getter
-    private final int interval;
-
   }
 
 }
