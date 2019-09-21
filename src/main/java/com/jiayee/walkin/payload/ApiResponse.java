@@ -3,8 +3,8 @@ package com.jiayee.walkin.payload;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@AllArgsConstructor
 @Data
+@AllArgsConstructor
 public class ApiResponse {
 
   private Boolean isSuccess;

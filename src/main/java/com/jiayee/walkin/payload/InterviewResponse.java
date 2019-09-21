@@ -5,11 +5,13 @@ import com.jiayee.walkin.model.Slot;
 import java.time.Instant;
 import java.util.List;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
 
-@AllArgsConstructor
+@Builder
 @Data
+@AllArgsConstructor
 public class InterviewResponse {
 
   @NonNull

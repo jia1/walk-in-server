@@ -9,8 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NonNull;
 
-@AllArgsConstructor
 @Data
+@AllArgsConstructor
 public class InterviewRequest {
 
   @NonNull

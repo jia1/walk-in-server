@@ -14,9 +14,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
 
+@Builder
 @Data
 @Entity
 @Table(name = "slots")

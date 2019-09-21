@@ -3,9 +3,11 @@ package com.jiayee.walkin.model;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import lombok.Builder;
 import lombok.NonNull;
 import lombok.Value;
 
+@Builder
 @Value
 class Name {
 
